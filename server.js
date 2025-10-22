@@ -15,7 +15,9 @@ const CACHE_FILE = "./cache.json";
 let cache = fs.existsSync(CACHE_FILE)
   ? JSON.parse(fs.readFileSync(CACHE_FILE))
   : {};
-
+app.get("/", async (req, res) => {
+  res.send("Welcome to mlbbaga");
+});
 app.post("/api/explain", async (req, res) => {
   const { teamA, teamB } = req.body;
   const cacheKey = JSON.stringify({ teamA, teamB });
